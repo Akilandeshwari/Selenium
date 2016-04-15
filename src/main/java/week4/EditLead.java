@@ -40,18 +40,18 @@ public class EditLead extends Wrapper {
 			String a = row.getCell(1).getStringCellValue();
 
 			enterTextByXpath("(//input[@name='firstName'])[3] ", a); //find lead by 1st name
-			clickByXPath("(//button[@class='x-btn-text'])[7]"); // find lead
+			clickByXpath("(//button[@class='x-btn-text'])[7]"); // find lead
 			clickByLinkText("10179"); // click the link by lead id
 			verifyTitle("View Lead | opentaps CRM"); // verify the title
 			clickByLinkText("Edit"); 
 
 			String x = row1.getCell(2).getStringCellValue();
 			selectByText("addDataSourceForm_dataSourceId", x);
-			clickByXPath("(//input[@name='submitButton'])[2]"); // to add
+			clickByXpath("(//input[@name='submitButton'])[2]"); // to add
 			String y = row1.getCell(3).getStringCellValue();
 			selectByText("addMarketingCampaignForm_marketingCampaignId", y);
-			clickByXPath("(//input[@name='submitButton'])[3]"); // to add marketing campaign
-			clickByXPath("(//input[@name='submitButton'])[1]"); // to update the leads
+			clickByXpath("(//input[@name='submitButton'])[3]"); // to add marketing campaign
+			clickByXpath("(//input[@name='submitButton'])[1]"); // to update the leads
 			System.out.println("Source data");
 			verifyText("viewLead_dataSources_sp", x);
 			System.out.println("Marketing Campaign data");
