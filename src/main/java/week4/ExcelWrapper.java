@@ -2,15 +2,12 @@ package week4;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 
 public class ExcelWrapper {
 
@@ -34,11 +31,16 @@ public class ExcelWrapper {
 		String cellValue = wb.getSheet(sheetname).getRow(rowno).getCell(colno).getStringCellValue();
 	}
 
-	public void writeData(String filepath, String sheetname, int rowno, int colno, String data) throws IOException {
-		FileInputStream fis = new FileInputStream(new File(filepath));
-		XSSFWorkbook wb = new XSSFWorkbook(fis);
-		wb.createSheet(sheetname).createRow(rowno).createCell(colno).setCellValue(data);
+	public void writeData(String path, String sheetname, int rowno, int colno, String data) throws IOException {
 
+		XSSFWorkbook wb = new XSSFWorkbook();
+		XSSFSheet sh = wb.getSheet(sheetname);
+		XSSFRow r = sh.createRow(rowno);
+		sh.getRow(rowno).createCell(colno).setCellValue(data);
+
+		FileOutputStream fo = new FileOutputStream(new File(path));
+		wb.write(fo);
+		wb.close();
 	}
 
 	public void closeWorkbook(String filepath) throws IOException {
