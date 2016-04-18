@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="OnlySmoke" parallel="false">
+	<groups>
+		<run>
+			<include name="smoke">
+			</include>
+		</run>
+	</groups>
+
+	<test name="Test" >
+		<classes>
+			<class name="testNgOpenTaps.EditLead" />
+			<class name="testNgOpenTaps.DeleteLead" />
+			<class name="testNgOpenTaps.CreateLead" />
+			<class name="testNgOpenTaps.MergeLead" />
+			<class name="testNgOpenTaps.EditContact" />
+			<class name="testNgOpenTaps.DeleteContact" />
+			<class name="testNgOpenTaps.CreateContact" />
+			<class name="testNgOpenTaps.MergeContact" />
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- OnlySmoke -->

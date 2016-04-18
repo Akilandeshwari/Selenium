@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="SmokeAndSanity">
+	<groups>
+		<run>
+			<include name="s.*">
+			</include>
+		</run>
+	</groups>
+	<listeners>
+		<listener class-name="testNgOpenTaps.Listener"></listener>
+	</listeners>
+	<test name="Test" parallel="classes" thread-count="2">
+		<classes>
+			<class name="testNgOpenTaps.CreateContact" />
+			<class name="testNgOpenTaps.CreateLead" />
+			<class name="testNgOpenTaps.EditLead" />
+			<class name="testNgOpenTaps.DeleteLead" />
+			<class name="testNgOpenTaps.MergeLead" />
+			<class name="testNgOpenTaps.EditContact" />
+			<class name="testNgOpenTaps.DeleteContact" />
+			<class name="testNgOpenTaps.MergeContact" />
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- SmokeAndSanity -->
